@@ -1,5 +1,6 @@
 // import UncontrolledForm from './forms/UncontrolledForm';
 import ControlledForm from './forms/ControlledForm';
+// import OneStateForm from './forms/OneStateForm';
 import './App.css';
 import { useState } from 'react';
 import Colors from './components/Colors';
@@ -16,6 +17,11 @@ function App() {
   const [colors, setColors] = useState(initVals);
   const addColor = (title, code) => {
     setColors((prev) => prev = [...prev, { colorTitle: title, colorCode: code }]);
+    const newColor = {
+      colorTitle: title,
+      colorCode: code
+    };
+    console.log(newColor);
   };
 
   return (
@@ -24,6 +30,7 @@ function App() {
       {/* <UncontrolledForm onColorPicked={(title, code) => addColor(title, code)} /> */}
       <ControlledForm onColorPicked={(title, code) => addColor(title, code)} />
       <Colors colors={colors} />
+      {/* <OneStateForm /> */}
     </div>
 
   );
